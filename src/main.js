@@ -884,7 +884,7 @@ vx[0] = "";vx[1] = "";waitMsg = "no";vx[2] = "";vx[3] = "";
 			this._client.leaveGroup(0,seq.to);
 		}
 		
-		if(vx[1] == "youtube" isAdminOrBot(seq.from_) && seq.from_ == vx[0] && waitMsg == "yes"){
+		if(vx[1] == "youtube" && seq.from_ == vx[0] && waitMsg == "yes"){
 			if(txt == "cancel"){
 				vx[0] = "";vx[1] = "";waitMsg = "no";vx[2] = "";vx[3] = "";
 				this._sendMessage(seq,"#CANCELLED");
@@ -938,7 +938,7 @@ Link Download: "+idU.id+"\n";
 				waitMsg = "no";vx[0] = "";vx[1] = "";vx[2] = "";vx[3] = "";
 				this._sendMessage(seq,"#CANCELLED");
 			}
-		}else if(txt == "youtube" && isBanned(seq.from_)){this._sendMessage(seq,"Not permitted !");}
+		}else if(txt == "youtube" {this._sendMessage(seq,"Not permitted !");}
 		
 		if(vx[1] == "botleave" && seq.from_ == vx[0] && waitMsg == "yes"){
 			if(txt == "cancel"){
@@ -1003,7 +1003,7 @@ Link Download: "+idU.id+"\n";
                     this._kickMember(seq.to,[listMember[i].mid])
                 }
             }
-        }else if(txt === 'kickall' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
+        }else if(txt === 'kickall' && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
 		
 		if(txt == 'key' && !isAdminOrBot(seq.from_)) {
 			let botOwner = await this._client.getContacts([myBot[0]]);
