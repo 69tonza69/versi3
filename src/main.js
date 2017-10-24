@@ -938,7 +938,7 @@ Link Download: "+idU.id+"\n";
 				waitMsg = "no";vx[0] = "";vx[1] = "";vx[2] = "";vx[3] = "";
 				this._sendMessage(seq,"#CANCELLED");
 			}
-		}else if(txt == "youtube" {this._sendMessage(seq,"Not permitted !");}
+		}else if(txt == "youtube" && isBanned(seq.from_)){this._sendMessage(seq,"Not permitted !");}
 		
 		if(vx[1] == "botleave" && seq.from_ == vx[0] && waitMsg == "yes"){
 			if(txt == "cancel"){
