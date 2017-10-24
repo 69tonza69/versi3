@@ -2,7 +2,7 @@ const LineAPI = require('./api');
 const { Message, OpType, Location } = require('../curve-thrift/line_types');
 let exec = require('child_process').exec;
 
-const myBot = ['u7a92b4c0c87a2dfeedec343276cea972','uf51ed4f092b7686f297a23ed3789ae34','u5373e15ec8d7c4e3983098440b62587a'];
+const myBot = ['ufdb348d53532a57228f045ecfaa00f8d','ue5060e54a4ed380dcafd0a2213592ad0','ua044c625da53442ff1040e30bfb1ee28','u93c7c5d46bc99b92c09faede05b7e8b6'];
 
 
 function isAdminOrBot(param) {
@@ -202,11 +202,7 @@ class LINE extends LineAPI {
                 this.cancelAll(seq.to);
             }
         }
-
-        if(txt == 'halo' || txt == 'sya') {
-            this._sendMessage(seq, 'halo disini tasya :)');
-        }
-
+	    
         if(txt == 'speed') {
             const curTime = (Date.now() / 1000);
             await this._sendMessage(seq,'processing....');
@@ -229,7 +225,7 @@ class LINE extends LineAPI {
             }
         }
 
-        if(txt == 'setpoint') {
+        if(txt == 'set') {
             this._sendMessage(seq, `Setpoint for check reader.`);
             this.removeReaderByGroup(seq.to);
         }
@@ -299,7 +295,7 @@ class LINE extends LineAPI {
             }
         }
         
-        if(cmd == 'left'  && isAdminOrBot(seq.from)) { //untuk left dari group atau spam group contoh left <alfath>
+        if(cmd == 'leave'  && isAdminOrBot(seq.from)) { //untuk left dari group atau spam group contoh left <alfath>
             this.leftGroupByName(payload)
         }
 
